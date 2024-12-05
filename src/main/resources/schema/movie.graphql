@@ -1,0 +1,45 @@
+scalar DateScalar
+scalar Url
+
+type Movie {
+    id : ID!,
+    title: String!,
+    releaseYear: Int,
+    releaseDate: DateScalar,
+    directors: [Director!]!,
+    genres: [Genre!]!
+}
+
+type Director {
+    id : ID!,
+    name : String!,
+    nationality : String,
+    movies : [Movie!]!
+}
+
+type Genre{
+    id : ID!,
+    name:String!,
+    movies :[Movie!]!
+}
+
+input MovieFilterInput{
+    releasedYear: Int
+    releasedAfter: DateScalar
+    directorId: ID
+    genreId: ID
+    testScalar: Url
+}
+
+input AddMovieInput{
+    title: String!,
+    releaseYear: Int,
+    releaseDate: DateScalar
+}
+
+input UpdateMovieInput{
+    title: String,
+    releaseYear: Int
+    releaseDate: DateScalar
+}
+

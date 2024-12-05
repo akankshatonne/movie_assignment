@@ -1,0 +1,13 @@
+type Query{
+    allMovies(filter: MovieFilterInput): [Movie!]!
+    movieById(id: ID): Movie
+}
+
+type Mutation{
+    addMovie(movie: AddMovieInput): Movie!
+    updateMovie(id:ID!, movie: UpdateMovieInput): Movie!
+    deleteMovie(id:ID!): Boolean
+    addDirectorToMovie(movieId: ID!, directorId: ID!): Movie
+    addGenreToMovie(movieId: ID!, genreId: ID!): Movie
+}
+
